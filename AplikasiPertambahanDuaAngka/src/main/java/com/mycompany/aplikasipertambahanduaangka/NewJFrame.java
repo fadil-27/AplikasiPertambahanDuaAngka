@@ -4,10 +4,8 @@
  */
 package com.mycompany.aplikasipertambahanduaangka;
 
-/**
- *
- * @author LENOVO
- */
+import javax.swing.*;
+
 public class NewJFrame extends javax.swing.JFrame {
 
     /**
@@ -61,6 +59,11 @@ public class NewJFrame extends javax.swing.JFrame {
         });
 
         jButton1.setText("Tambah");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Hapus");
 
@@ -148,6 +151,23 @@ public class NewJFrame extends javax.swing.JFrame {
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+        // Mengambil teks dari jTextField1 dan jTextField2, lalu mengonversi ke integer
+            int angka1 = Integer.parseInt(jTextField1.getText());
+            int angka2 = Integer.parseInt(jTextField2.getText());
+
+            // Melakukan penjumlahan
+            int hasil = angka1 + angka2;
+
+            // Menampilkan hasil di jTextField3
+            jTextField3.setText(String.valueOf(hasil));
+        } catch (NumberFormatException e) {
+            // Menampilkan pesan error jika input bukan angka
+            JOptionPane.showMessageDialog(this, "Input harus berupa angka!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
